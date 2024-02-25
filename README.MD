@@ -51,3 +51,4 @@ curl --location --request POST 'localhost/api/v1?method=convert&from=USD&to=BTC&
 curl --location 'localhost/api/v1?method=rates&currency=EUR' \
 --header 'Authorization: Bearer HhGocXnAvFw2BN8xpTeKIELSJ0zlCf5DiOgQZr_saUy4MbY3-j1PWq9u67tdmVkR'
 ````
+использован фреймворк slim, компоненты symfony и doctrine
