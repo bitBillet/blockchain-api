@@ -1,0 +1,8 @@
+###
+POST localhost/api/v1/auth
+Content-Type: application/json
+
+{
+  "login": "someuser",
+  "password" : "qwerty123"
+}

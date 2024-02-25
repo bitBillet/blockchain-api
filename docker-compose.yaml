@@ -1,0 +1,42 @@
+networks:
+    blockchain-api:
+        name: blockchain-api
+
+services:
+    blockchain-nginx:
+        container_name: blockchain-nginx
+        image: nginx:latest
+        ports:
+            - 80:80
+        volumes:
+            - ./docker/volumes/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+            - ./:/blockchain
+        networks:
+            - blockchain-api
+        depends_on:
+            - blockchain-php
+            - blockchain-mysql
+    blockchain-php:
+        container_name: blockchain-php
+        build:
+            dockerfile: ./docker/builds/php/Dockerfile
+        volumes:
+            - ./:/blockchain
+        depends_on:
+            - blockchain-mysql
+        networks:
+            - blockchain-api
+    blockchain-mysql:
+        container_name: blockchain-mysql
+        image: mysql:latest
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./docker/volumes/mysql/data:/var/lib/mysql
+        environment:
+            - MYSQL_USER=slim
+            - MYSQL_PASSWORD=slim
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=blockchain
+        networks:
+            - blockchain-api
