@@ -18,7 +18,7 @@ HAVING COUNT(b.id) = 2;
 2. открыть проект в phpstorm или перейти в папку проекта в терминале
 3. выполнить команду `composer install`
 4. выполнить команду `docker compose up -d`
-5. выполнить команду миграций `vendor/bin/doctrine-migrations migrate`
+5. выполнить команду миграций `vendor/bin/doctrine-migrations migrate`, нажать enter в консоле при просьбе
 6. выполнить запрос из папки `test-request/auth.http` в phpstorm
 или курлом из терминала, при этом на вашей системе должна быть установлена библиотека curl
 ````
