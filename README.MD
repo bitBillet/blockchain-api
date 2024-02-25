@@ -40,6 +40,7 @@ curl --location 'localhost/api/v1/auth' \
 }
 ````
 в ответе копируем токен из поля data.auth_token
+
 7. используем полученный токен для отправки запросов `convert.http` и `rates.http` в папке `test-request` если вы через phpstorm
 или с помощью курла
 ````
